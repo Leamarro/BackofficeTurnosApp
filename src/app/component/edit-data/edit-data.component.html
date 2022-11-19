@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="btn btn-primary" routerLink="/list-data">Home</button>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <form [formGroup]="updateSheetForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="name" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="platform" class="form-label">Platform</label>
+      <input type="text" class="form-control" id="platform" placeholder="platform" formControlName="platform">
+    </div>
+
+    <div class="mb-3">
+      <label for="technology" class="form-label">Technology</label>
+      <input type="text" class="form-control" id="technology" placeholder="technology" formControlName="technology">
+    </div>
+
+    <div class="mb-3">
+      <label for="link" class="form-label">Link</label>
+      <input type="text" class="form-control" id="link" placeholder="link" formControlName="link">
+    </div>
+
+    <button [disabled]="updateSheetForm.invalid || updateSheetForm.pristine"
+      class="btn btn-success mt-3">Submit</button>
+
+  </form>
+</div>
