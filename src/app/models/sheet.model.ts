@@ -1,6 +1,9 @@
 export interface Sheet {
-  name: string;
-  platform: string;
-  technology: string;
-  link: string;
+  nombre: string;
+  telefono: string;
+  barbero: string;
+  servicio: string;
+  fecha: string;
+  horario: string;
+
 }

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="usuario" formControlName="usuario">
+        </div>
+        <div class="mb-3">
+          <label for="contraseña" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="contraseña" formControlName="contraseña">
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        <div *ngIf="invalidCredentials" class="text-danger mt-3">Credenciales inválidas</div>
+      </form>
+    </div>
+  </div>
+</div>

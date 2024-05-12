@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Sheet } from 'src/app/models/sheet.model';
 import { SheetService } from 'src/app/service/sheet.service';
 
 @Component({
@@ -18,29 +17,23 @@ export class CreateDataComponent implements OnInit {
     private router: Router
   ) {
     this.googleSheetForm = this.formBuilder.group({
-      name: formBuilder.control(''),
-      platform: formBuilder.control(''),
-      technology: formBuilder.control(''),
-      link: formBuilder.control(''),
+      nombre: [''],
+      telefono: [''],
+      barbero: [''],
+      servicio: [''],
+      fecha: [''],
+      horario: [''],
+      precio: [''],
     });
   }
 
   ngOnInit() {}
 
-  public onSubmit() {
-    console.log(this.googleSheetForm.value);
-
-    const name = this.googleSheetForm.value.name;
-    const platform = this.googleSheetForm.value.platform;
-    const technology = this.googleSheetForm.value.technology;
-    const link = this.googleSheetForm.value.link;
-
-    this.service.createSheet(name, platform, technology, link).subscribe({
+  onSubmit() {
+    this.service.createSheet(this.googleSheetForm.value).subscribe({
       next: (res) => {
         console.log(res);
-        if (res) {
-          this.router.navigate(['/list-data']);
-        }
+        this.router.navigate(['/list-data']);
       },
       error: (error) => {
         console.log(error);

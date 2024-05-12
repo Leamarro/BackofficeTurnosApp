@@ -20,10 +20,12 @@ export class EditDataComponent implements OnInit {
     private router: Router
   ) {
     this.updateSheetForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      platform: ['', Validators.required],
-      technology: ['', Validators.required],
-      link: ['', Validators.required],
+      nombre: ['', Validators.required],
+      telefono: ['', Validators.required],
+      barbero: ['', Validators.required],
+      servicio: ['', Validators.required],
+      fecha: ['', Validators.required], // Agregar el control 'fecha' al formulario
+      horario: ['', Validators.required],
     });
   }
 
@@ -33,35 +35,36 @@ export class EditDataComponent implements OnInit {
       this.service.getSheetDataById(this.id).subscribe((res: any) => {
         console.log(res[0]);
         this.data = res[0];
-        this.updateSheetForm.get('name')?.setValue(this.data.name);
-        this.updateSheetForm.get('platform')?.setValue(this.data.platform);
-        this.updateSheetForm.get('technology')?.setValue(this.data.technology);
-        this.updateSheetForm.get('link')?.setValue(this.data.link);
+        this.updateSheetForm.patchValue({
+          nombre: this.data.nombre,
+          telefono: this.data.telefono,
+          barbero: this.data.barbero,
+          servicio: this.data.servicio,
+          fecha: this.data.fecha,
+          horario: this.data.horario,
+        });
       });
     });
   }
 
   onSubmit() {
+    if (this.updateSheetForm.invalid) {
+      return;
+    }
+  
     const { value } = this.updateSheetForm;
     console.log('value', value);
-
-    const name = this.updateSheetForm.value.name;
-    const platform = this.updateSheetForm.value.platform;
-    const technology = this.updateSheetForm.value.technology;
-    const link = this.updateSheetForm.value.link;
-
-    this.service
-      .updateSheet(this.id, name, platform, technology, link)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          if (res) {
-            this.router.navigate(['/list-data']);
-          }
-        },
-        error: (error) => {
-          console.log(error);
-        },
-      });
+  
+    this.service.updateSheet(this.id, value).subscribe({
+      next: (res) => {
+        console.log(res);
+        if (res) {
+          this.router.navigate(['/list-data']);
+        }
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

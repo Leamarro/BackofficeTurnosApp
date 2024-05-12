@@ -1,33 +1,39 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="btn btn-primary" routerLink="/list-data">Home</button>
-  </div>
-</nav>
 
 <div class="container mt-5">
   <form [formGroup]="updateSheetForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="name" formControlName="name">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="nombre" formControlName="nombre">
     </div>
 
     <div class="mb-3">
-      <label for="platform" class="form-label">Platform</label>
-      <input type="text" class="form-control" id="platform" placeholder="platform" formControlName="platform">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="telefono" placeholder="telefono" formControlName="telefono">
     </div>
 
     <div class="mb-3">
-      <label for="technology" class="form-label">Technology</label>
-      <input type="text" class="form-control" id="technology" placeholder="technology" formControlName="technology">
+      <label for="barbero" class="form-label">Barbero</label>
+      <input type="text" class="form-control" id="barbero" placeholder="barbero" formControlName="barbero">
     </div>
 
     <div class="mb-3">
-      <label for="link" class="form-label">Link</label>
-      <input type="text" class="form-control" id="link" placeholder="link" formControlName="link">
+      <label for="servicio" class="form-label">Servicio</label>
+      <input type="text" class="form-control" id="servicio" placeholder="servicio" formControlName="servicio">
     </div>
+
+    <div class="mb-3">
+      <label for="horario" class="form-label">Horario</label>
+      <input type="text" class="form-control" id="horario" placeholder="horario" formControlName="horario">
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha</label>
+      <input type="date" class="form-control" id="fecha" placeholder="Fecha" formControlName="fecha">
+    </div>
+    
 
     <button [disabled]="updateSheetForm.invalid || updateSheetForm.pristine"
-      class="btn btn-success mt-3">Submit</button>
+      class="btn btn-success mt-3">Editar</button>
 
   </form>
 </div>

@@ -1,32 +1,53 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="btn btn-primary" routerLink="/list-data">Home</button>
-  </div>
-</nav>
-
 <div class="container mt-5">
   <form [formGroup]="googleSheetForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label for="name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="name" formControlName="name">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Nombre" formControlName="nombre">
     </div>
 
     <div class="mb-3">
-      <label for="platform" class="form-label">Platform</label>
-      <input type="text" class="form-control" id="platform" placeholder="platform" formControlName="platform">
+      <label for="telefono" class="form-label">Telefono</label>
+      <input type="number" class="form-control" id="telefono" placeholder="Telefono" formControlName="telefono">
     </div>
 
     <div class="mb-3">
-      <label for="technology" class="form-label">Technology</label>
-      <input type="text" class="form-control" id="technology" placeholder="technology" formControlName="technology">
+      <label for="barbero" class="form-label">Barbero</label>
+      <select class="form-select" id="barbero" formControlName="barbero">
+        <option value="" selected disabled>Selecionar barbero</option>
+        <option value="Bruno">Bruno</option>
+        <option value="Ramiro">Ramiro</option>
+      </select>
     </div>
 
     <div class="mb-3">
-      <label for="link" class="form-label">Link</label>
-      <input type="text" class="form-control" id="link" placeholder="link" formControlName="link">
+      <label for="servicio" class="form-label">Servicio</label>
+      <select class="form-select" name="form-select" id="servicio" formControlName="servicio">
+        <option value="" selected disabled>Selecionar el servicio</option>
+        <option value="corte">Corte</option>
+        <option value="barba">Barba</option>
+        <option value="corte-barba">Barba y Corte</option>
+      </select>
     </div>
 
-    <button class="btn btn-success mt-3">Submit</button>
+    <div class="mb-3">
+      <label for="horario" class="form-label">Horario</label>
+      <input type="time" class="form-control" id="horario" placeholder="horario" formControlName="horario">
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha" class="form-label">Fecha</label>
+      <input type="date" class="form-control" id="fecha" placeholder="MM/DD/YYYY" formControlName="fecha">
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio</label>
+      <input type="number" class="form-control" id="precio" placeholder="Precio" formControlName="precio">
+    </div>
+
+    
+    <div class="text-center">
+      <button class="btn btn-success mt-3" type="submit">Agregar Turno</button>
+    </div>
 
   </form>
 </div>

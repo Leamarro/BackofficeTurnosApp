@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  CONNECTION_URL:
-    'https://sheet.best/api/sheets/cd0badce-a8be-4707-9a56-300e176dcc12',
+  CONNECTION_URL: 'https://sheet.best/api/sheets/6ab43879-c0d2-4aaf-93f2-c13bcacce7bc',
+  CONNECTION_LOGIN: 'https://sheet.best/api/sheets/de437215-058a-4212-ae35-94a1edc90fac'
 };
 
 /*

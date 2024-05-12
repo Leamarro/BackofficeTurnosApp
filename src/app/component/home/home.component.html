@@ -1,9 +1,14 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12">
+      <h2>Turnos para hoy</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
       <div class="mb-3">
         <label for="dateFilter" class="form-label">Filtrar por fecha:</label>
-        <input type="date" class="form-control" id="dateFilter" (change)="onDateChange($event)">
+        <input type="date" class="form-control" id="dateFilter" [value]="today" (change)="onDateChange($event)">
       </div>
     </div>
     <div class="col-12">
@@ -25,7 +30,6 @@
               <th scope="col">Servicio</th>
               <th scope="col">Fecha</th>
               <th scope="col">Horario</th>
-              <th scope="col">Estado</th>
               <th scope="col"></th>
               <th scope="col"></th>
             </tr>
@@ -38,19 +42,11 @@
               <td>{{datum.servicio}}</td>
               <td>{{datum.fecha}}</td>
               <td>{{datum.horario}}</td>
-              <td>
-                <ng-container *ngIf="datum.estado === 1">
-                  Confirmado
-                </ng-container>
-                <ng-container *ngIf="datum.estado === 2">
-                  Pendiente
-                </ng-container>
-              </td>
               <td (click)="editSheet(i)"><button class="btn btn-secondary">Editar</button></td>
               <td (click)="deleteSheet(i)"><button class="btn btn-danger">Borrar</button></td>
             </tr>
           </tbody>
-        </table>        
+        </table>
       </div>
     </div>
   </div>

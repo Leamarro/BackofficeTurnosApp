@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <form [formGroup]="preciosForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="corte" class="form-label">Precio Corte</label>
+        <input type="number" class="form-control" id="corte" formControlName="corte">
+      </div>
+  
+      <div class="mb-3">
+        <label for="barba" class="form-label">Precio Barba</label>
+        <input type="number" class="form-control" id="barba" formControlName="barba">
+      </div>
+  
+      <div class="mb-3">
+        <label for="corteBarba" class="form-label">Precio Corte y Barba</label>
+        <input type="number" class="form-control" id="corteBarba" formControlName="corteBarba">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+  
